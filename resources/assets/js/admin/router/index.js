@@ -1,0 +1,15 @@
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+
+Vue.use(VueRouter);
+
+export default new VueRouter({
+    saveScrollPosition: true,
+    routes: [
+        {
+            name: 'admin',
+            path: '/admin',
+            component: resolve => void(require(['../components/Admin.vue'], resolve))
+        }
+    ]
+});
