@@ -18,3 +18,5 @@ Route::get('/', function () {
 Route::get('/wechat', function () {
     return view('wechat.index');
 });
+
+include('admin.php');

@@ -6,7 +6,13 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>Document</title>
+    <link rel="stylesheet" href="{{ url('/css/app.css') }}">
+    <title>{{ config("app.name") }}</title>
+    <script>
+        window.App = {
+            appName: "{{ config('app.name') }}"
+        };
+    </script>
 </head>
 <body>
     <div id="app"></div>

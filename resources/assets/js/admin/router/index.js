@@ -6,10 +6,10 @@ Vue.use(VueRouter);
 export default new VueRouter({
     saveScrollPosition: true,
     routes: [
-        {
-            name: 'admin',
-            path: '/admin',
-            component: resolve => void(require(['../components/Admin.vue'], resolve))
-        }
+        // {
+        //     name: 'admin',
+        //     path: '/admin',
+        //     component: resolve => void(require(['../components/Admin.vue'], resolve))
+        // }
     ]
 });
