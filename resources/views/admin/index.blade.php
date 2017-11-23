@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="{{ url('/css/app.css') }}">
+    <link rel="stylesheet" href="{{ url('/css/ionicons.min.css') }}">
     <title>{{ config("app.name") }}</title>
     <script>
         window.App = {

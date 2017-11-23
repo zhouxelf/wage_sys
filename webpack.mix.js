@@ -14,4 +14,6 @@ let mix = require('laravel-mix');
 mix.js('resources/assets/js/admin/admin.js', 'public/js')
    .js('resources/assets/js/wechat/wechat.js', 'public/js/wechat.js')
    .extract(['vue', 'vue-router', 'element-ui'])
-   .copy('resources/assets/sass/app.css', 'public/css');
+   .copy('resources/assets/sass/app.css', 'public/css')
+   .copy('resources/assets/library/css', 'public/css')
+   .copy('resources/assets/library/fonts', 'public/fonts');
