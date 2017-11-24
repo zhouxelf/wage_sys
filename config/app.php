@@ -15,6 +15,8 @@ return [
 
     'name' => env('APP_NAME', 'Laravel'),
 
+    'copy_right' => env('COPY_RIGHT', '三月软件'),
+
     /*
     |--------------------------------------------------------------------------
     | Application Environment

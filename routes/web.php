@@ -13,6 +13,7 @@
 
 Route::group(['namespace' => 'Admin\User'], function () {
     Route::get('/login', 'LoginController@index');
+    Route::post('/login', 'LoginController@login');
 });
 
 Route::group(['middleware' => ['check.login']], function () {
