@@ -11,12 +11,20 @@
 |
 */
 
-Route::get('/', function () {
-    return view('admin.index');
+Route::group(['namespace' => 'Admin\User'], function () {
+    Route::get('/login', 'LoginController@index');
+});
+
+Route::group(['middleware' => ['check.login']], function () {
+    Route::get('/', function () {
+        return view('admin.index');
+    });
+
+    include('admin.php');
 });
 
 Route::get('/wechat', function () {
     return view('wechat.index');
 });
 
-include('admin.php');
+
