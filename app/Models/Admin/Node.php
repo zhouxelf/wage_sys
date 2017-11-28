@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Node extends Model
 {
-    public function formatMenu($menus)
+    private function formatMenu($menus)
     {
         $data = [];
         foreach ($menus as $v) {
@@ -29,7 +29,7 @@ class Node extends Model
         return $this->formatMenu($menus);
     }
 
-    public function getMenu()
+    private function getMenu()
     {
         return  $this->where([
                     ['type', '0'],
