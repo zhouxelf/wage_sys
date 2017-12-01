@@ -32,36 +32,6 @@
     </div>
 </template>
 
-<style scoped>
-    .rorate:before {
-        transform: rotate(90deg);
-        -ms-transform: rotate(90deg);
-        -moz-transform: rotate(90deg);
-        -webkit-transform: rotate(90deg);
-        -o-transform: rotate(90deg);
-    }
-
-    .menu_change_h {
-        text-align: center !important;
-        /* background-color: #d1e3e5; */
-    }
-
-    .menu_change_h:hover {
-        /* background-color: #a5e3c7 !important; */
-    }
-
-    .menu-icon {
-        font-size: 18px;
-        position: relative;
-        top: 2px;
-        vertical-align: bottom;
-    }
-
-    .menu-icon:after {
-        content: " "
-    }
-</style>
-
 <script>
     export default {
         data() {
@@ -122,3 +92,33 @@
         }
     }
 </script>
+
+<style scoped>
+    .rorate:before {
+        transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+        -moz-transform: rotate(90deg);
+        -webkit-transform: rotate(90deg);
+        -o-transform: rotate(90deg);
+    }
+
+    .menu_change_h {
+        text-align: center !important;
+        /* background-color: #d1e3e5; */
+    }
+
+    .menu_change_h:hover {
+        /* background-color: #a5e3c7 !important; */
+    }
+
+    .menu-icon {
+        font-size: 18px;
+        position: relative;
+        top: 2px;
+        vertical-align: bottom;
+    }
+
+    .menu-icon:after {
+        content: " "
+    }
+</style>

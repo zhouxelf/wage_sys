@@ -13,6 +13,26 @@
         <div style="clear:both;"></div>
     </div>
 </template>
+
+<script>
+    export default {
+        data() {
+            return {
+                app_name: window.App.appName
+            }
+        },
+        methods: {
+            handleSelect(key, keyPath) {
+                if (key === "logout") {
+                    window.location.href = "/logout";
+                } else {
+                    this.$router.push(key);
+                }
+            }
+        }
+    }
+</script>
+
 <style>
     .gm-header > ul {
         background-color: transparent !important;
@@ -56,21 +76,3 @@
         vertical-align: middle;
     }
 </style>
-<script>
-    export default {
-        data() {
-            return {
-                app_name: window.App.appName
-            }
-        },
-        methods: {
-            handleSelect(key, keyPath) {
-                if (key === "logout") {
-                    window.location.href = "/logout";
-                } else {
-                    this.$router.push(key);
-                }
-            }
-        }
-    }
-</script>
