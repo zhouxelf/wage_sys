@@ -35,4 +35,86 @@ class UserController extends Controller
             return response()->json(['status' => 1, 'msg' => '密码修改失败,请重试']);
         }
     }
+
+    /*
+     * 获取用户列表
+     */
+    public function getList(Request $request)
+    {
+        $pageSize = $request->pageSize;
+        $keyword = $request->keyword;
+        $users = User::getList($pageSize, $keyword);
+        if (!empty($users)) {
+            return $users;
+        } else {
+            return responseToJson(1, '用户加载失败');
+        }
+    }
+
+    /*
+     * 获取单个用户，用于编辑
+     */
+    public function get(Request $request)
+    {
+        $id = $request->id;
+        $res = User::find($id);
+
+        if ($res) {
+            return responseToJson(0, 'success', $res);
+        } else {
+            return responseToJson(1, '信息加载失败');
+        }
+    }
+
+    /*
+     * 添加、编辑用户
+     */
+    public function edit(Request $request)
+    {
+        $id = $request->id;
+        $code = $request->code;
+        $name = $request->name;
+        $sex = $request->sex;
+        $phone = $request->phone;
+
+        if (!$code) {
+            return responseToJson(1, '工号不能为空');
+        }
+
+        if (!$name) {
+            return responseToJson(1, '姓名不能为空');
+        }
+
+        if (!is_phone($phone)) {
+            return responseToJson(1, '手机号格式错误');
+        }
+        $user = [
+            'id' => $id,
+            'code' => $code,
+            'name' => $name,
+            'sex' => $sex,
+            'phone' => $phone
+        ];
+        $res = User::edit($user);
+        if ($res) {
+            return responseToJson(0, '保存成功');
+        } else {
+            return responseToJson(1, '保存失败，请重试');
+        }
+
+    }
+
+    /*
+     * 删除用户
+     */
+    public function del(Request $request)
+    {
+        $id = $request->id;
+        $res = User::del($id);
+        if ($res) {
+            return responseToJson(0, '删除成功');
+        } else {
+            return responseToJson(1, '删除失败，请重试');
+        }
+    }
 }

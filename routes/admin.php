@@ -5,5 +5,10 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
 
     Route::group(['namespace' => 'User'], function () {
         Route::post('/user/password', 'UserController@updatePwd');
+
+        Route::get('/user/list', 'UserController@getList');
+        Route::get('/user/get', 'UserController@get');
+        Route::post('/user/edit', 'UserController@edit');
+        Route::post('/user/del', 'UserController@del');
     });
 });

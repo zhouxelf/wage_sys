@@ -15,6 +15,11 @@ function responseToJson($code = 0, $msg = '', $paras = null)
     return response()->json($res);
 }
 
+function responseToPage($result)
+{
+    return response()->json($result);
+}
+
 function get_session_user()
 {
     return session('user');
@@ -58,4 +63,40 @@ function get_salt()
     $uuid = create_uuid();
     $salt = substr($uuid, strlen($uuid) - 4, 4);
     return $salt;
+}
+
+/**
+ * 判断手机号是否合法
+ * @param $phone
+ * @return bool
+ */
+function is_phone($phone)
+{
+    $reg_phone = '/^1[3|5|7|8]\d{9}$/';
+    if (preg_match($reg_phone, $phone)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+/**
+ * 获取全拼
+ * @param $str
+ * @return mixed
+ */
+function get_pinyin_simple($str)
+{
+    return \Overtrue\LaravelPinyin\Facades\Pinyin::abbr($str);
+}
+
+/**
+ * 获取简拼
+ * @param $str
+ * @return string
+ */
+function get_pinyin_all($str)
+{
+    $arr = \Overtrue\LaravelPinyin\Facades\Pinyin::convert($str);
+    return implode("", $arr);
 }
