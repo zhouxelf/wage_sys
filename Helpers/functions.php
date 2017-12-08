@@ -100,3 +100,8 @@ function get_pinyin_all($str)
     $arr = \Overtrue\LaravelPinyin\Facades\Pinyin::convert($str);
     return implode("", $arr);
 }
+
+function millisecond()
+{
+    return ceil(microtime(true) * 1000);
+}

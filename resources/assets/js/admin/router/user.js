@@ -12,4 +12,8 @@ export default [
         path: '/user/edit',
         component: resolve =>void(require(['../components/user/Edit.vue'], resolve))
     },
+    {
+        path: '/user/import',
+        component: resolve =>void(require(['../components/user/Import.vue'], resolve))
+    },
 ]

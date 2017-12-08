@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Admin\User;
+use Maatwebsite\Excel\Facades\Excel;
 
 class UserController extends Controller
 {
@@ -107,7 +108,7 @@ class UserController extends Controller
     /*
      * 删除用户
      */
-    public function del(Request $request)
+    public function delete(Request $request)
     {
         $id = $request->id;
         $res = User::del($id);
@@ -116,5 +117,35 @@ class UserController extends Controller
         } else {
             return responseToJson(1, '删除失败，请重试');
         }
+    }
+
+    /**
+     * 导入用户
+     * @param Request $request
+     */
+    public function import(Request $request)
+    {
+        return User::import($request);
+    }
+
+    /*
+     * 下载模板
+     */
+    public function template()
+    {
+        Excel::create("用户模板", function ($excel) {
+            $excel->sheet("用户模板", function ($sheet){
+                $data = [
+                    ['工号', '姓名', '性别', '手机号'],
+                ];
+                $sheet->rows($data);
+                $sheet->setWidth(array(
+                    'A' => 15,
+                    'B' => 15,
+                    'C' => 15,
+                    'D' => 15,
+                ));
+            });
+        })->export("xls");
     }
 }

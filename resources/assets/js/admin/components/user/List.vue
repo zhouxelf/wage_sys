@@ -11,14 +11,14 @@
         <el-form :inline="true" @keydown.enter.native="search">
             <el-form-item>
                 <router-link :to="{ path: 'edit' }">
-                    <el-button><i class="ion-plus"></i> 添加学生</el-button>
+                    <el-button><i class="ion-plus"></i> 添加用户</el-button>
                 </router-link>
             </el-form-item>
-            <!--<el-form-item>-->
-                <!--<router-link :to="{ path: 'import' }">-->
-                    <!--<el-button><i class="ion-android-upload"></i> 导入学生</el-button>-->
-                <!--</router-link>-->
-            <!--</el-form-item>-->
+            <el-form-item>
+                <router-link :to="{ path: 'import' }">
+                    <el-button><i class="ion-android-upload"></i> 导入用户</el-button>
+                </router-link>
+            </el-form-item>
 
             <el-form-item label="关键字">
                 <el-input v-model="keyword" placeholder="工号 \ 姓名"></el-input>
