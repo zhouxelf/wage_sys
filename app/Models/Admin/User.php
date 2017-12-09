@@ -127,20 +127,20 @@ class User extends Model
     {
         // 判断请求中是否包含 name=file 的上传文件
         if (!$request->hasFile('files')) {
-            return responseToJson(1, '上传文件为空！');
+            return responseToJson(1, '上传文件为空');
         }
         $file = $request->file('files');
         // 判断上传过程中是否出错
         if (!$file->isValid()) {
-            return responseToJson(1, '文件上传出错！');
+            return responseToJson(1, '文件上传出错');
         }
         $destPath = realpath(storage_path('app/tmp'));
         if (!file_exists($destPath)) {
             mkdir($destPath, 0777, true);
         }
-        $fileName = get_session_user_id() .'and' . millisecond() . 'xls';
+        $fileName = get_session_user_id() .'and' . millisecond() . '.xls';
         if ($file->move($destPath,  $fileName) == false) {
-            return responseToJson(1, '保存文件失败！');
+            return responseToJson(1, '保存文件失败');
         }
 
         // Excel 导入
@@ -151,7 +151,7 @@ class User extends Model
 
         $result = $reader->toArray();
         if (empty($result)) {
-            return responseToJson(1, '文件内容为空！');
+            return responseToJson(1, '文件内容为空');
         }
 
         $success = 0;
@@ -161,7 +161,7 @@ class User extends Model
 
         for ($i = 1; $i < count($result); $i++) {
             if (!empty($result[$i][1])) {
-                $find_res = self::where('code', $result[$i][0])->first();
+                $find_res = self::where('code', $result[$i][0])->where('status', '0')->where('type', 0)->first();
                 $code = $result[$i][0] ? $result[$i][0] : '';
                 $name = $result[$i][1] ? $result[$i][1] : '';
                 $sex = $result[$i][2] ? $result[$i][2] : '';

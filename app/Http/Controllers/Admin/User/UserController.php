@@ -68,6 +68,21 @@ class UserController extends Controller
     }
 
     /*
+     * 获取用户名
+     */
+    public function getUserName(Request $request)
+    {
+        $code = $request->code;
+        $res = User::where('code', $code)->where('status', '0')->where('type', 0)->first();
+
+        if ($res) {
+            return responseToJson(0, 'success', $res->name);
+        } else {
+            return responseToJson(1, '用户不存在,q');
+        }
+    }
+
+    /*
      * 添加、编辑用户
      */
     public function edit(Request $request)
