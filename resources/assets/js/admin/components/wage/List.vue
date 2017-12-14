@@ -9,11 +9,6 @@
         </div>
 
         <el-form :inline="true" @keydown.enter.native="search">
-            <!--<el-form-item>-->
-                <!--<router-link :to="{ path: 'edit' }">-->
-                    <!--<el-button><i class="ion-plus"></i> 录入工资</el-button>-->
-                <!--</router-link>-->
-            <!--</el-form-item>-->
             <el-form-item>
                 <router-link :to="{ path: 'import' }">
                     <el-button><i class="ion-android-upload"></i> 导入工资</el-button>
@@ -31,6 +26,8 @@
         <el-table :data="wages" border>
             <el-table-column prop="code" label="工号"></el-table-column>
             <el-table-column prop="name" label="姓名"></el-table-column>
+            <el-table-column prop="wage_year" label="工资年份"></el-table-column>
+            <el-table-column prop="wage_month" label="工资月份"></el-table-column>
             <el-table-column prop="wage_should" label="应发工资"></el-table-column>
             <el-table-column prop="wage_garnishment" label="扣发工资"></el-table-column>
             <el-table-column prop="wage_actual" label="实发工资"></el-table-column>

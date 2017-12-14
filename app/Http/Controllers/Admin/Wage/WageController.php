@@ -25,6 +25,21 @@ class WageController extends Controller
     }
 
     /*
+     * 获取用户单月工资
+     */
+    public function get(Request $request)
+    {
+        $id = $request->id;
+        $res = Wage::find($id);
+
+        if ($res) {
+            return responseToJson(0, 'success', $res);
+        } else {
+            return responseToJson(1, '信息加载失败');
+        }
+    }
+
+    /*
      * 删除工资
      */
     public function del(Request $request)

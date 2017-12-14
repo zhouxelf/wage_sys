@@ -78,7 +78,7 @@ class UserController extends Controller
         if ($res) {
             return responseToJson(0, 'success', $res->name);
         } else {
-            return responseToJson(1, '用户不存在,q');
+            return responseToJson(1, '用户不存在');
         }
     }
 
