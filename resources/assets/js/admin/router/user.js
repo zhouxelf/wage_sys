@@ -15,9 +15,5 @@ export default [
     {
         path: '/user/import',
         component: resolve =>void(require(['../components/user/Import.vue'], resolve))
-    },
-    {
-        path: '/user/test',
-        component: resolve =>void(require(['../components/user/Test.vue'], resolve))
     }
 ]

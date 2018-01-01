@@ -17,6 +17,7 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function () {
     Route::group(['prefix' => 'wage', 'namespace' => 'Wage'], function () {
         Route::get('/list', 'WageController@getList');
         Route::get('/get', 'WageController@get');
+        Route::get('/gets', 'WageController@gets');
         Route::post('/del', 'WageController@del');
         Route::post('/import', 'WageController@import');
         Route::get('/template', 'WageController@template');

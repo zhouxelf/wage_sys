@@ -26,8 +26,8 @@
                     <h3>个人所得税：{{ wage.income_tax }}</h3>
                 </el-col>
                 <el-col :span="8">
-                    <h3>工资年月：{{ wage.wage_year }}{{ wage.wage_month }}</h3><br>
-                    <h1>实发工资：{{ wage.wage_actual }}</h1>
+                    <h3>工资年月：{{ wage.wage_year }}{{ formatMonth }}</h3><br>
+                    <h1 style="color: #843534">实发工资：{{ wage.wage_actual }}</h1>
                 </el-col>
             </el-row>
         </el-card>
@@ -76,6 +76,16 @@
                         });
                     }
                 });
+            }
+        },
+        computed: {
+            // 格式化月份
+            formatMonth() {
+                if (this.wage.wage_month.length < 2) {
+                    return '0' + this.wage.wage_month;
+                } else {
+                    return this.wage.wage_month;
+                }
             }
         },
         mounted() {

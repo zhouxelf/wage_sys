@@ -40,6 +40,20 @@ class WageController extends Controller
     }
 
     /*
+     * 获取用户所有工资
+     */
+    public function gets()
+    {
+        $res = Wage::gets();
+
+        if ($res) {
+            return responseToJson(0, 'success', $res);
+        } else {
+            return responseToJson(1, '信息加载失败');
+        }
+    }
+
+    /*
      * 删除工资
      */
     public function del(Request $request)

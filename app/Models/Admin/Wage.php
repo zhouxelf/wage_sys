@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Models\Admin\User;
+use Illuminate\Support\Facades\DB;
 
 class Wage extends Model
 {
@@ -248,5 +249,17 @@ class Wage extends Model
             }
         }
         return $validate_info;
+    }
+
+    /**
+     * 获取当前用户所用工资
+     */
+    public static function gets()
+    {
+        // 获取登录用户信息
+        $user = DB::table('users')->where('id', get_session_user_id())->first();
+
+        $wages = self::where('code', $user->code)->where('status', '0')->get();
+        return $wages;
     }
 }
