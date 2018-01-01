@@ -9,6 +9,8 @@ use Maatwebsite\Excel\Facades\Excel;
 
 class User extends Model
 {
+    const TYPE_COMMON = 0;
+    const TYPE_ADMIN = 1;
 
     /**
      * 获取用户

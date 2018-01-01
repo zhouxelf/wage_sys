@@ -18,9 +18,7 @@ Route::group(['namespace' => 'Admin\User'], function () {
 });
 
 Route::group(['middleware' => ['check.login']], function () {
-    Route::get('/', function () {
-        return view('admin.index');
-    });
+    Route::get('/', 'Admin\IndexController@index');
 
     include('admin.php');
 });

@@ -11,7 +11,8 @@ let mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/assets/js/admin/admin.js', 'public/js')
+mix.js('resources/assets/js/admin/admin.js', 'public/js/admin.js')
+   .js('resources/assets/js/common/common.js', 'public/js/common.js')
    .js('resources/assets/js/wechat/wechat.js', 'public/js/wechat.js')
    .extract(['vue', 'vue-router', 'element-ui'])
    .copy('resources/assets/sass/app.css', 'public/css')
