@@ -7,7 +7,7 @@
 
 技术上使用：Laravel + Vue.js + ElementUI + ECharts
 
-演示地址：wage.mrzhouxiaofei.com
+演示地址：http://wage.mrzhouxiaofei.com
 
 测试账号：管理员端 admin 123456 普通用户端 201515 123456
 
