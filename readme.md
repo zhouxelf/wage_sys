@@ -1,3 +1,8 @@
+## 说明
+
+2019 年 6 月 13 日更新：
+
+服务器学生优惠因毕业到期，测试地址不再可用，系统数据库 SQL 文件已上传，需要的话，代码拉到本地测试。
 
 ## A simple wage query system
 
@@ -7,9 +12,9 @@
 
 技术上使用：Laravel + Vue.js + ElementUI + ECharts
 
-演示地址：http://wage.mrzhouxiaofei.com
+~~演示地址：http://wage.mrzhouxiaofei.com~~
 
-测试账号：管理员端 admin 123456 普通用户端 201515 123456
+~~测试账号：管理员端 admin 123456 普通用户端 201515 123456~~
 
 请友好测试，谢谢合作！
           
